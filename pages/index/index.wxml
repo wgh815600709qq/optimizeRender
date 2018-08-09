@@ -1,0 +1,14 @@
+<!-- index.wxml -->
+<view class="container">
+    <swiper current="{{swiperIndex}}" style="width:370px;height:400px;">
+        <block wx:for="{{showList}}">
+            <swiper-item>
+               <view class="border" catch:touchstart="onTouchStart" catch:touchend="onTouchEnd" wx:if="{{item}}"> {{item.value}}</view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="center">轮播图索引:{{swiperIndex}}</view>
+    <view class="center">{{currentPage+1}}/{{total}}</view>
+    <input  bindinput="bindInput" placeholder="输入页面" value="{{page}}"/>
+    <button bindtap="turnPage">跳转</button>
+</view>
